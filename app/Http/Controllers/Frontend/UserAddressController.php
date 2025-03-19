@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\UserAddress;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserAddressController extends Controller
@@ -48,7 +48,7 @@ class UserAddressController extends Controller
          $address->user_id       = Auth::user()->id;
          $address->name          = $request->name;
          $address->email         = $request->email;
-         $address->phone         =$request->phone;
+         $address->phone         = $request->phone;
          $address->country       = $request->country;
          $address->state	     = $request->state;
          $address->city          = $request->city;
@@ -92,14 +92,14 @@ class UserAddressController extends Controller
             'state'              =>['required','max:200'],
             'city'               =>['required','max:200'],
             'zip'                =>['required','max:200'],
-            'address'             =>['required']
+            'address'            =>['required']
          ]);
 
          $address = UserAddress::findOrFail($id);
          $address->user_id       = Auth::user()->id;
          $address->name          = $request->name;
          $address->email         = $request->email;
-         $address->phone         =$request->phone;
+         $address->phone         = $request->phone;
          $address->country       = $request->country;
          $address->state	     = $request->state;
          $address->city          = $request->city;

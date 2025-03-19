@@ -38,7 +38,6 @@ class SliderDataTable extends DataTable
                     return $active;
                 }else{
                     return $inActive;
-
                 }
             })
             ->rawColumns(['banner','action','status'])

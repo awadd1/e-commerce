@@ -24,7 +24,6 @@
                 
               </div>
             </div>
-            
           </div>
         
         </div>
@@ -36,7 +35,6 @@
 {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 
 <script>
-
   $(document).ready(function(){
     $('body').on('click', '.change-status', function(){
       let isChecked = $(this).is(':checked');
@@ -45,8 +43,8 @@
       $.ajax({
           url: "{{route('admin.product.change-status')}}",
           method:'PUT',
-          data:{
-            status : isChecked,
+          data: {
+            status: isChecked,
             id: id
           },
           success: function(data){

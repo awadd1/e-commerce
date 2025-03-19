@@ -6,7 +6,6 @@
       <section class="section">
         <div class="section-header">
           <h1>Shipping Rule</h1>
-          
         </div>
 
         <div class="section-body">
@@ -57,8 +56,8 @@
           error: function(xhr, status, error){
             console.log(error);
           }
-      })
         })
-  })
+      })
+    })
 </script>
 @endpush

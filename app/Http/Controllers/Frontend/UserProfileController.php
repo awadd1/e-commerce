@@ -29,7 +29,7 @@ class UserProfileController extends Controller
                 File::delete(public_path($user->image));
             }
             $image =$request->image;
-            $imageName =rand().'_'.$image->getClientOriginalName();
+            $imageName = rand().'_'.$image->getClientOriginalName();
             $image->move(public_path('uploads'), $imageName);
 
             $path = 'uploads/'.$imageName;
@@ -55,7 +55,7 @@ class UserProfileController extends Controller
         $request->user()->update([
             'password' => bcrypt($request->password)
         ]);
-        toastr()->success('password updated successfully!');
+        toastr()->success('Profile Password Updated Successfully!');
         return redirect()->back();  
     }
 

@@ -4,15 +4,13 @@ namespace App\Http\Controllers\Backend;
 
 use App\DataTables\VendorProductDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Brand;
-use App\Models\Product;
-use App\Models\SubCategory;
+use App\Models\Category;
 use App\Models\ChildCategory;
+use App\Models\Product;
 use App\Models\ProductImageGallery;
 use App\Models\ProductVariant;
-
-
+use App\Models\SubCategory;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +25,6 @@ class VendorProductController extends Controller
     public function index(VendorProductDataTable $dataTable)
     {
         return $dataTable->render('vendor.product.index');
-
     }
 
     /**
@@ -63,13 +60,13 @@ class VendorProductController extends Controller
 
          /**Handle the image upload */
          $imagePath = $this->uploadImage($request, 'image','uploads' );
-         $product = new Product();
+         $product   = new Product();
          $product->thumb_image         = $imagePath;
          $product->name                = $request->name;
          $product->slug                = Str::slug($request->name);
          $product->vendor_id           = Auth::user()->vendor->id;
          $product->category_id         = $request->category;
-         $product->sub_category_id     =$request->sub_category;
+         $product->sub_category_id     = $request->sub_category;
          $product->child_category_id   = $request->child_category;
          $product->brand_id	           = $request->brand;
          $product->qty                 = $request->qty;
@@ -78,7 +75,7 @@ class VendorProductController extends Controller
          $product->video_link          = $request->video_link;
          $product->sku                 = $request->sku;
          $product->price               = $request->price;
-         $product->offer_price	       = $request->offer_price	;
+         $product->offer_price	       = $request->offer_price;
          $product->offer_start_date    = $request->offer_start_date;
          $product->offer_end_date      = $request->offer_end_date;
          $product->product_type        = $request->product_type;
@@ -110,10 +107,10 @@ class VendorProductController extends Controller
         if ($product->vendor_id != Auth::user()->vendor->id) {
             abort(404);
          }
-        $subCategories = SubCategory::where('category_id' , $product->category_id)->get();
+        $subCategories   = SubCategory::where('category_id' , $product->category_id)->get();
         $childCategories = ChildCategory::where('sub_category_id' , $product->sub_category_id)->get();
-        $categories = Category::all();
-        $brands     = Brand::all();
+        $categories      = Category::all();
+        $brands          = Brand::all();
         return view('vendor.product.edit', compact('product','categories','brands','subCategories','childCategories'));
        
     }
@@ -142,7 +139,6 @@ class VendorProductController extends Controller
          $product = Product::findOrFail($id);
         /** check if its the owner of the product */
          if ($product->vendor_id != Auth::user()->vendor->id) {
-
             abort(404);
          }
          /**Handle the image upload */
@@ -213,9 +209,9 @@ class VendorProductController extends Controller
     public function changeStatus(Request $request)
     {
         $product = Product::findOrFail($request->id);
-        $product->status = $request->status== 'true' ? 1 : 0;
+        $product->status = $request->status == 'true' ? 1 : 0;
         $product->save();
-        return response(['message' => 'status has been updated!']);
+        return response(['message' => 'Status has been updated!']);
     }
 
     /**

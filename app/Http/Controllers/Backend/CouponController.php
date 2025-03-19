@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Coupon;
-
 use App\DataTables\CouponDataTable;
+use App\Http\Controllers\Controller;
+use App\Models\Coupon;
+use Illuminate\Http\Request;
+
 
 class CouponController extends Controller
 {
@@ -129,8 +129,8 @@ class CouponController extends Controller
     public function changeStatus(Request $request){
 
         $coupon = Coupon::findOrFail($request->id);
-        $coupon->status = $request->status== 'true' ? 1 : 0;
+        $coupon->status = $request->status == 'true' ? 1 : 0;
         $coupon->save();
-        return response(['message' => 'status has been updated!']);
+        return response(['message' => 'Status has been updated!']);
     }
 }

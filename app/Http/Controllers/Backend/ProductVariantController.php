@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\ProductVariantDataTable;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductVariant;
-use App\DataTables\ProductVariantDataTable;
 use App\Models\ProductVariantItem;
+use Illuminate\Http\Request;
 
 class ProductVariantController extends Controller
 {
@@ -109,8 +109,8 @@ class ProductVariantController extends Controller
     public function changeStatus(Request $request){
 
         $variant = ProductVariant::findOrFail($request->id);
-        $variant->status = $request->status== 'true' ? 1 : 0;
+        $variant->status = $request->status == 'true' ? 1 : 0;
         $variant->save();
-        return response(['message' => 'status has been updated!']);
+        return response(['message' => 'Status has been updated!']);
 }
 }

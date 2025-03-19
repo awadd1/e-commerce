@@ -35,18 +35,16 @@ class SubCategoryDataTable extends DataTable
                     $button ='<label class="custom-switch mt-2">
                             <input type="checkbox" checked name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status">
                             <span class="custom-switch-indicator"></span>
-                           
                           </label>';
                 }else {
                     $button ='<label class="custom-switch mt-2">
                             <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status">
                             <span class="custom-switch-indicator"></span>
-                    
                     </label>';
                 }
                 return $button;
             })
-            ->rawColumns([ 'status','action'])
+            ->rawColumns(['status','action'])
             ->setRowId('id');
     }
 

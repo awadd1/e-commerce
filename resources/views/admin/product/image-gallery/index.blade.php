@@ -2,7 +2,6 @@
 @section('content')
   
     <!-- Main Content -->
-  
       <section class="section">
         <div class="section-header">
           <h1>Product Image Gallery</h1>
@@ -42,12 +41,10 @@
                 </div>
                 <div class="card-body">
                   {{ $dataTable->table() }}
-
                 </div>
-                
+
               </div>
             </div>
-            
           </div>
         
         </div>

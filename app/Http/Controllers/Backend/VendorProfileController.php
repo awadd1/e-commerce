@@ -31,7 +31,7 @@ class VendorProfileController extends Controller
                 File::delete(public_path($user->image));
             }
             $image =$request->image;
-            $imageName =rand().'_'.$image->getClientOriginalName();
+            $imageName = rand().'_'.$image->getClientOriginalName();
             $image->move(public_path('uploads'), $imageName);
 
             $path = 'uploads/'.$imageName;
@@ -42,7 +42,7 @@ class VendorProfileController extends Controller
         $user->email =$request->email;
         $user->save(); 
         
-        toastr()->success('profile updated successfully!');
+        toastr()->success('Profile Updated Successfully!');
         return redirect()->back();
 
     }

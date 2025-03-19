@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\DataTables\ShippingRuleDataTable;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\ShippingRule;
+use Illuminate\Http\Request;
 
 class ShippingRuleController extends Controller
 {
@@ -108,8 +108,8 @@ class ShippingRuleController extends Controller
     public function changeStatus(Request $request){
 
         $shipping = ShippingRule::findOrFail($request->id);
-        $shipping->status = $request->status== 'true' ? 1 : 0;
+        $shipping->status = $request->status == 'true' ? 1 : 0;
         $shipping->save();
-        return response(['message' => 'status has been updated!']);
+        return response(['message' => 'Status has been updated!']);
     }
 }

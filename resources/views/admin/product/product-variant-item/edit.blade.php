@@ -1,12 +1,10 @@
 @extends('admin.layouts.master')
-@section('content')
-  
+
+@section('content')  
     <!-- Main Content -->
-  
       <section class="section">
         <div class="section-header">
           <h1>Product Variant Items</h1>
-          
         </div>
 
         <div class="section-body">
@@ -16,8 +14,8 @@
                 <div class="card-header">
                   <h4>Update Variant Item</h4>
                 </div>
+
                 <div class="card-body">
-                  
                   <form action="{{route('admin.products-variant-item.update', $variantItem->id)}}" method="POST">
                     @csrf
                     @method('PUT')
@@ -26,8 +24,6 @@
                       <input type="text" class="form-control" name="variant_name" value="{{$variantItem->productVariant->name}}" readonly>
                     </div>
                     
-
-
                     <div class="form-group">
                       <label>Item Name</label>
                       <input type="text" class="form-control" name="name" value="{{$variantItem->name}}">
@@ -61,7 +57,6 @@
                 
               </div>
             </div>
-            
           </div>
         
         </div>

@@ -43,11 +43,11 @@ class BrandController extends Controller
         $logoPath = $this->uploadImage($request, 'logo','uploads');
         $brand = new Brand();
 
-        $brand->logo   = $logoPath;
-        $brand->name   = $request->name;
-        $brand->slug   = Str::slug($request->title);
+        $brand->logo        = $logoPath;
+        $brand->name        = $request->name;
+        $brand->slug        = Str::slug($request->name);
         $brand->is_featured = $request->is_featured;
-        $brand->status = $request->status;
+        $brand->status      = $request->status;
         $brand->save();
 
         toastr('created successfully!','success');
@@ -85,11 +85,11 @@ class BrandController extends Controller
         $brand = Brand::findOrFail($id);
         $logoPath = $this->updateImage($request, 'logo','uploads',$brand->logo);
 
-        $brand->logo   = empty(!$logoPath) ? $logoPath : $brand->logo;
-        $brand->name   = $request->name;
-        $brand->slug   = Str::slug($request->title);
+        $brand->logo        = empty(!$logoPath) ? $logoPath : $brand->logo;
+        $brand->name        = $request->name;
+        $brand->slug        = Str::slug($request->name);
         $brand->is_featured = $request->is_featured;
-        $brand->status = $request->status;
+        $brand->status      = $request->status;
         $brand->save();
 
         toastr('updated successfully!','success');
@@ -110,9 +110,9 @@ class BrandController extends Controller
     public function changeStatus(Request $request){
 
         $category = Brand::findOrFail($request->id);
-        $category->status = $request->status== 'true' ? 1 : 0;
+        $category->status = $request->status == 'true' ? 1 : 0;
         $category->save();
-        return response(['message' => 'status has been updated!']);
+        return response(['message' => 'Status has been updated!']);
 }
 }
 

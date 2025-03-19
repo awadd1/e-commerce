@@ -68,7 +68,7 @@
 @endsection
 
 @push('scripts')
-  <script>
+<script>
     $(document).ready(function(){
       $('body').on('change', '.shipping-type', function(){
         let value = $(this).val();
@@ -80,7 +80,7 @@
         }
       })
     })
-  </script>
+</script>
 @endpush
 
 

@@ -41,12 +41,11 @@ $categories = \App\Models\Category::where('status', 1)
                         </li>
                         @endforeach
 
-
                         <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li>
                     </ul>
 
                     <ul class="wsus__menu_item">
-                        <li><a class="active" href="index.html">home</a></li>
+                        <li><a class="active" href="{{url('/')}}">home</a></li>
                         <li><a href="product_grid_view.html">shop <i class="fas fa-caret-down"></i></a>
                             <div class="wsus__mega_menu">
                                 <div class="row">

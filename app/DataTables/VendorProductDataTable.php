@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -11,7 +12,6 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-use Illuminate\Support\Facades\Auth;
 
 class VendorProductDataTable extends DataTable
 {
@@ -72,7 +72,7 @@ class VendorProductDataTable extends DataTable
                 return $button;
             })
             ->addColumn('approved', function($query){
-                if($query->is_approved == 1){
+                if($query->is_approved === 1){
                     return '<i class="badge bg-success">Approved</i>';
                    
                 }else {
@@ -103,7 +103,7 @@ class VendorProductDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),

@@ -27,7 +27,6 @@
                 
               </div>
             </div>
-            
           </div>
         
         </div>
@@ -58,8 +57,8 @@
           error: function(xhr, status, error){
             console.log(error);
           }
-      })
         })
-  })
+      })
+   })
 </script>
 @endpush

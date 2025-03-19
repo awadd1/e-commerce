@@ -1,12 +1,11 @@
 @extends('admin.layouts.master')
-@section('content')
-  
+
+@section('content')  
     <!-- Main Content -->
   
       <section class="section">
         <div class="section-header">
           <h1>Product Variant Items</h1>
-          
         </div>
 
         <div class="section-body">
@@ -67,7 +66,6 @@
                 
               </div>
             </div>
-            
           </div>
         
         </div>

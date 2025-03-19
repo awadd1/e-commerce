@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-use Illuminate\Support\Facades\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use File;
 
 class ProfileController extends Controller
@@ -30,7 +29,7 @@ class ProfileController extends Controller
                 File::delete(public_path($user->image));
             }
             $image = $request->image;
-            $imageName =rand().'_'.$image->getClientOriginalName();
+            $imageName = rand().'_'.$image->getClientOriginalName();
             $image->move(public_path('uploads'), $imageName );
             $path = "/uploads/".$imageName;
             $user->image = $path;

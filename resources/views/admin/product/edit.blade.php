@@ -2,13 +2,10 @@
 @section('content')
   
  <!-- Main Content -->
-  
  <section class="section">
   <div class="section-header">
     <h1>Product</h1>
-   
   </div>
-
   <div class="section-body">
     <div class="row">
       <div class="col-12 ">
@@ -20,6 +17,7 @@
            <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+
             <div class="form-group">
               <label>Preview</label>
               <br>
@@ -35,8 +33,8 @@
               <label>Name</label>
               <input type="text" class="form-control" name="name" value="{{$product->name}}">
             </div>
-
           <div class="row" >
+
               <div class="col-md-4">
                 <div class="form-group ">
                   <label for="inputState">Category</label>
@@ -48,6 +46,7 @@
                   </select>
                 </div>
               </div>
+
               <div class="col-md-4" >
                 <div class="form-group ">
                   <label for="inputState">Sub Category</label>
@@ -59,6 +58,7 @@
                   </select>
                 </div>
               </div>
+
               <div class="col-md-4">
                 <div class="form-group ">
                   <label for="inputState">Child Category</label>
@@ -197,8 +197,8 @@
 
           let id = $(this).val();
           $.ajax({
-            method:'GET',
-            url:"{{route('admin.product.get-subcategories')}}",
+            method: 'GET',
+            url: "{{route('admin.product.get-subcategories')}}",
             data: {
                  id:id
             },
@@ -211,12 +211,11 @@
 
             error: function(xhr, status, error){
               console.log(error);
-            },
-
+            }
           })
         })
 
-            /** get  child categories */
+          /** get  child categories */
           $('body').on('change', '.sub-category', function(e){
           let id = $(this).val();
           $.ajax({
@@ -235,7 +234,7 @@
 
             error: function(xhr, status, error){
               console.log(error);
-            },
+            }
 
           })
         })

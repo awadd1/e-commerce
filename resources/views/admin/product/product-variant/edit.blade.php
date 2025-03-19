@@ -2,11 +2,9 @@
 @section('content')
   
     <!-- Main Content -->
-  
       <section class="section">
         <div class="section-header">
           <h1>Update Variant</h1>
-          
         </div>
 
         <div class="section-body">
@@ -14,10 +12,10 @@
             <div class="col-12 ">
               <div class="card">
                 <div class="card-header">
-                  <h4>Create Variant</h4>
+                  <h4>Update Variant</h4>
                 </div>
                 <div class="card-body">
-                  <form action="{{route('admin.products-variant.update',$variant->id )}}" method="POST">
+                  <form action="{{route('admin.products-variant.update', $variant->id )}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -39,7 +37,6 @@
                 
               </div>
             </div>
-            
           </div>
         
         </div>

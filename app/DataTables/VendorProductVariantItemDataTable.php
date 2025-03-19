@@ -2,8 +2,8 @@
 
 namespace App\DataTables;
 
-use App\Models\VendorProductVariantItem;
 use App\Models\ProductVariantItem;
+use App\Models\VendorProductVariantItem;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;

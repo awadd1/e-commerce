@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\DataTables\VendorProductImageGalleryDataTable;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImageGallery;
-use Illuminate\Support\Facades\Auth;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class VendorProductImageGalleryController extends Controller
 {
     use ImageUploadTrait;

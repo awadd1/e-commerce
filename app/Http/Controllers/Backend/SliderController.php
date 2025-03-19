@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\SliderDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
-use App\DataTables\SliderDataTable;
+use Illuminate\Support\Facades\Cache;
 
 class SliderController extends Controller
 {

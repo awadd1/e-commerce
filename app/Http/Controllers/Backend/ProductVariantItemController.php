@@ -99,9 +99,9 @@ class ProductVariantItemController extends Controller
     public function changeStatus(Request $request)
     {
        $variantItem = ProductVariantItem::findOrFail($request->id);
-       $variantItem->status = $request->status== 'true' ? 1 : 0;
+       $variantItem->status = $request->status == 'true' ? 1 : 0;
        $variantItem->save();
-       return response(['message' => 'status has been updated!']);
+       return response(['message' => 'Status has been updated!']);
     }
 
     

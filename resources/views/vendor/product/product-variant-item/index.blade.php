@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-
-
   <!--=============================
     DASHBOARD START
   ==============================-->
@@ -63,8 +61,8 @@
           error: function(xhr, status, error){
             console.log(error);
           }
-      })
-        })
+       })
+    })
   })
 </script>
 @endpush

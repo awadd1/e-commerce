@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
-use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class VendorShopProfileController extends Controller
 {
@@ -44,8 +44,8 @@ class VendorShopProfileController extends Controller
             'tw_link'       =>['nullable','url'],
             'insta_link'    =>['nullable','url']
          ]);
-         $vendor = Vendor::where('user_id', Auth::user()->id)->first();
 
+         $vendor = Vendor::where('user_id', Auth::user()->id)->first();
         /** Handle file upload*/
         $bannerPath = $this->updateImage($request, 'banner','uploads' ,$vendor->banner);
         

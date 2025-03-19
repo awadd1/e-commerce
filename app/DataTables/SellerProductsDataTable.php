@@ -2,9 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Models\SellerProduct;
 use App\Models\Product;
+use App\Models\SellerProduct;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -12,7 +13,6 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-use Illuminate\Support\Facades\Auth;
 
 class SellerProductsDataTable extends DataTable
 {
@@ -97,7 +97,7 @@ class SellerProductsDataTable extends DataTable
      */
     public function query(Product $model): QueryBuilder
     {
-        return $model->where('vendor_id', '!=' ,Auth::user->vendor->id)
+        return $model->where('vendor_id', '!=' ,Auth::user()->vendor->id)
         ->where('is_approved', 1)
         ->newQuery();
 
@@ -140,7 +140,6 @@ class SellerProductsDataTable extends DataTable
             Column::make('type')->width(150),
             Column::make('status'),
             Column::make('approve')->width(100),
-
             Column::computed('action')
             ->exportable(false)
             ->printable(false)

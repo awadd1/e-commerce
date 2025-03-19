@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\DataTables\FlashSaleItemDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\FlashSale;
-use App\Models\Product;
 use App\Models\FlashSaleItem;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class FlashSaleController extends Controller
@@ -69,7 +69,7 @@ class FlashSaleController extends Controller
     public function changeStatus(Request $request){
 
         $flashSaleItem = FlashSaleItem::findOrFail($request->id);
-        $flashSaleItem->status = $request->status== 'true' ? 1 : 0;
+        $flashSaleItem->status = $request->status == 'true' ? 1 : 0;
         $flashSaleItem->save();
         return response(['message' => 'status has been updated!']);
     }

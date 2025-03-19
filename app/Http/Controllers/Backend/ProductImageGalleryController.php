@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\ProductImageGalleryDataTable;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImageGallery;
-
 use App\Traits\ImageUploadTrait;
-use App\DataTables\ProductImageGalleryDataTable;
+use Illuminate\Http\Request;
+
 
 class ProductImageGalleryController extends Controller
 {

@@ -16,7 +16,6 @@ class vendorProductVariantItemController extends Controller
     public function index(VendorProductVariantItemDataTable $dataTable, $productId, $variantId)
     {
         $product = Product::findOrFail($productId);
-        
         $variant = ProductVariant::findOrFail($variantId);
         
         return $dataTable->render('vendor.product.product-variant-item.index', compact('product', 'variant'));
@@ -100,9 +99,9 @@ class vendorProductVariantItemController extends Controller
     public function changeStatus(Request $request)
     {
        $variantItem = ProductVariantItem::findOrFail($request->id);
-       $variantItem->status = $request->status== 'true' ? 1 : 0;
+       $variantItem->status = $request->status == 'true' ? 1 : 0;
        $variantItem->save();
-       return response(['message' => 'status has been updated!']);
+       return response(['message' => 'Status has been updated!']);
     }
 
 }

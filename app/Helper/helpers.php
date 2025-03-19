@@ -28,7 +28,7 @@ function setActive(array $route) {
 
     $discountAmount  = $originalPrice - $discountPrice;
     $discountPercent = ($discountAmount / $originalPrice) * 100;
-    return $discountPercent;
+    return round($discountPercent);
   }
 
   /** check the product type  */
@@ -53,5 +53,15 @@ function setActive(array $route) {
             break;
     }
   }
+
+/** get total cart amount */
+function getCartTotal(){
+  $total   = 0;
+  foreach (\Cart::content() as $product) {
+   $total += ($product->price + $product->options->variants_total) * $product->qty;
+  }
+  return $total;
+}
+
 
   

@@ -29,12 +29,12 @@
                     <div class="form-group ">
                       <label for="inputState">Type</label>
                       <select id="" class="form-control shipping-type" name="type">
-                        <option {{$shipping->type == 'flat_cost' ? 'selected' : ''}} value="flat_cost">Flat Cost</option>
-                        <option {{$shipping->type == 'min_cost' ? 'selected' : ''}} value="min_cost">Minimum Order Amount</option>
+                        <option {{$shipping->type === 'flat_cost' ? 'selected' : ''}} value="flat_cost">Flat Cost</option>
+                        <option {{$shipping->type === 'min_cost' ? 'selected' : ''}} value="min_cost">Minimum Order Amount</option>
                       </select>
                     </div>
                     
-                    <div class="form-group min_cost {{$shipping->type == 'min_cost' ? '' : 'd-none'}}">
+                    <div class="form-group min_cost {{$shipping->type === 'min_cost' ? '' : 'd-none'}}">
                       <label>Minimum Amount</label>
                       <input type="text" class="form-control" name="min_cost" value="{{$shipping->min_cost}}">
                     </div>
@@ -47,8 +47,8 @@
                     <div class="form-group ">
                       <label for="inputState">Status</label>
                       <select id="inputState" class="form-control" name="status">
-                        <option {{$shipping->status == 1 ? 'selected' : ''}} value="1">Active</option>
-                        <option {{$shipping->status == 0 ? 'selected' : ''}} value="0">Inactive</option>
+                        <option {{$shipping->status === 1 ? 'selected' : ''}} value="1">Active</option>
+                        <option {{$shipping->status === 0 ? 'selected' : ''}} value="0">Inactive</option>
                       </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>

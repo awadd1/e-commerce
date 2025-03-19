@@ -40,7 +40,6 @@
 {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 
 <script>
-
   $(document).ready(function(){
     $('body').on('click', '.change-status', function(){
       let isChecked = $(this).is(':checked');
@@ -59,8 +58,8 @@
           error: function(xhr, status, error){
             console.log(error);
           }
-      })
         })
+      })
   })
 </script>
 @endpush
